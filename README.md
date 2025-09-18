@@ -58,26 +58,16 @@ Currently implemented flow:
 
 ```mermaid
 flowchart LR
-  subgraph Providers
-    A1[Shopify API]:::prov
-    A2[Amazon PA-API]:::prov
-    A3[eBay Browse]:::prov
-    A4[Mock / Fake Gen]:::prov
-  end
+  A1[Shopify API] --> R[Raw Dumps]
+  A2[Amazon API] --> R
+  A3[eBay Browse] --> R
+  A4[Mock/Fake] --> R
 
-  A1 --> R[Raw JSON Dumps]
-  A2 --> R
-  A3 --> R
-  A4 --> R
-
-  R --> N[Normalization Layer (products / orders)]
-  N --> M[Merge & Dedup (key-mode: triple / pair)]
-  M --> P[Parquet Store]
-  M --> L[Run Log JSONL]
-  P --> EDA[Jupyter / Analytics]
-
-  classDef prov fill=#1e88e5,stroke=#0d47a1,color=#fff;
-  classDef default fill=#f5f5f5,stroke=#777;
+  R --> N[Normalize]
+  N --> M[Merge & Dedup]
+  M --> P[Parquet]
+  M --> L[Run Log]
+  P --> EDA[Jupyter/Analytics]
 ```
 
 ### Data Lineage Snapshot
