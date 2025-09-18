@@ -65,14 +65,17 @@ flowchart LR
     A4[Mock / Fake Gen]:::prov
   end
 
-  A1 --> R[(Raw JSON Dumps)]
+  A1 --> R[Raw JSON Dumps]
   A2 --> R
   A3 --> R
   A4 --> R
 
-  R --> N[Normalization Layer\n(products/orders)] --> M[(Merge + Dedup\n key-mode: triple|pair)] --> P[(Parquet Store)]
+  R --> N[Normalization Layer (products / orders)]
+  N --> M[Merge & Dedup (key-mode: triple / pair)]
+  M --> P[Parquet Store]
   M --> L[Run Log JSONL]
   P --> EDA[Jupyter / Analytics]
+
   classDef prov fill=#1e88e5,stroke=#0d47a1,color=#fff;
   classDef default fill=#f5f5f5,stroke=#777;
 ```
