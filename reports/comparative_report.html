@@ -1,0 +1,127 @@
+<!DOCTYPE html><html><head><meta charset='utf-8'><title>Comparative Report</title><style>
+body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Cantarell, 'Helvetica Neue', Arial, sans-serif; margin: 2rem; line-height:1.5; }
+h1,h2,h3 { font-weight:600; }
+code, pre { background:#f5f5f7; padding:2px 4px; border-radius:4px; font-size:90%; }
+table { border-collapse: collapse; margin:1rem 0; width:100%; }
+th, td { border:1px solid #ddd; padding:6px 8px; font-size: 0.9rem; }
+th { background:#0f172a; color:#fff; }
+img { max-width:100%; }
+.header-brand { display:flex; justify-content: space-between; align-items:center; }
+.badge { background:#2563eb; color:#fff; padding:4px 8px; border-radius:16px; font-size:0.75rem; letter-spacing:0.05em; }
+.footer { margin-top:3rem; font-size:0.75rem; color:#555; text-align:center; }
+</style></head><body><div class='header-brand'><div><span class='badge'>DATA REPORT</span></div><div><img src='../brand/png/icon_cart_growth_default_256.png' alt='Logo' style='height:72px;'></div></div><h1>Comparative Data Report</h1>
+<p>Generated: 2025-09-17T22:55:42.023409+00:00</p>
+<p align='right'><img src='../brand/png/icon_cart_growth_default_256.png' alt='Brand Logo' width='96'/></p>
+
+<h2>Products Summary</h2>
+<p>Total products: <strong>825</strong>
+Distinct sources: <strong>3</strong>
+Top category: <strong>Electronics</strong>
+Price min: <strong>3.52</strong> | median: <strong>159.97</strong> | mean: <strong>169.39</strong> | p90: <strong>308.76</strong> | max: <strong>392.59</strong>
+Duplicate logical key pairs: <strong>232</strong> (64.44% of keys)
+Outlier price ratio (IQR fence): <strong>0.00%</strong> (lower=-178.92, upper=519.67)</p>
+<p><strong>Products by Source (Top 10)</strong></p>
+<table>
+<thead>
+<tr>
+<th>Source</th>
+<th>Count</th>
+<th>%</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>ebay</td>
+<td>364</td>
+<td>44.12%</td>
+</tr>
+<tr>
+<td>shopify</td>
+<td>319</td>
+<td>38.67%</td>
+</tr>
+<tr>
+<td>amazon</td>
+<td>142</td>
+<td>17.21%</td>
+</tr>
+<tr>
+<td><img alt="Product Price Distributions" src="figures/products_price_distributions.png" /></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<h2>Orders Summary</h2>
+<p>Total orders: <strong>285</strong>
+Timespan (days): <strong>9</strong>
+GMV total: <strong>202023.95</strong> | mean: <strong>708.86</strong> | median: <strong>627.05</strong></p>
+<p><strong>Orders by Source (Top 10)</strong></p>
+<table>
+<thead>
+<tr>
+<th>Source</th>
+<th>Count</th>
+<th>%</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>shopify</td>
+<td>285</td>
+<td>100.00%</td>
+</tr>
+<tr>
+<td><img alt="Orders Time Series" src="figures/orders_time_series.png" /></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td><img alt="AOV Distribution" src="figures/orders_aov_distribution.png" /></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<h2>Enriched Product Features</h2>
+<p>Derived columns: category_freq, price_amount, price_currency, source_freq</p>
+<h2>Enriched Order Features</h2>
+<p>Derived columns: aov_7d, gmv_7d, order_value_num, orders_7d, recency_days</p>
+<h2>Comparative Narrative</h2>
+<p>The product dataset establishes the commercial catalog footprint (source diversity, category concentration and price dispersion), while the
+orders dataset captures temporal demand and monetary performance. Provider (source) breakdowns reveal distribution of catalog and demand.</p>
+<p>Engineered features enable downstream tasks:
+- Price segmentation and elasticity exploration (<code>price_bucket</code>, <code>price_log</code>).
+- Supplier/source reliability &amp; concentration (<code>source_freq</code>).
+- Momentum &amp; short‑term commercial monitoring (<code>gmv_7d</code>, <code>orders_7d</code>, <code>aov_7d</code>).
+- Lifecycle / churn proxy via recency (<code>recency_days</code>).</p>
+<p>Data Quality &amp; Risk Observations:
+- Outlier ratios contextualize pricing anomalies for potential cleansing or curation steps.
+- Duplicate logical key pairs (source + source_id) indicate upstream id uniformity or merge correctness.
+- Run log metrics (new_<em> vs updated_</em>) help track incremental ingestion health; rising updated/new ratio may signal dataset maturity or stagnation.</p>
+<p>Recommended Next Steps:
+1. Establish anomaly thresholds for price outliers and rolling GMV deltas.
+2. Persist daily aggregate tables for BI dashboards.
+3. Integrate simple forecasting (e.g., 7d GMV moving average horizon extension) for operations planning.</p>
+<h2>Data Availability Matrix</h2>
+<table>
+<thead>
+<tr>
+<th>Dataset</th>
+<th>Rows</th>
+<th>Enriched</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Products</td>
+<td>825</td>
+<td>Yes</td>
+</tr>
+<tr>
+<td>Orders</td>
+<td>285</td>
+<td>Yes</td>
+</tr>
+</tbody>
+</table><div class='footer'>Generated from markdown. Brand integrated.</div></body></html>

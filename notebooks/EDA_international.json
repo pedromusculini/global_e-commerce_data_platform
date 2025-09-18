@@ -1,0 +1,246 @@
+{
+  "cells": [
+    {
+      "cell_type": "markdown",
+      "metadata": {"id": "#VSC-459df90c", "language": "markdown"},
+      "source": [
+        "# International E-commerce EDA",
+        "This notebook provides a robust workflow to load, diagnose, and visualize international e-commerce data."
+      ]
+    },
+    {
+      "cell_type": "markdown",
+      "metadata": {"id": "#VSC-0f7d702d", "language": "markdown"},
+      "source": [
+        "## 1. Import Required Libraries",
+        "Import all necessary libraries for data manipulation and visualization."
+      ]
+    },
+    {
+      "cell_type": "code",
+      "metadata": {"id": "#VSC-a0eaeda3", "language": "python"},
+      "source": [
+        "# Imports and setup",
+        "import pandas as pd",
+        "import numpy as np",
+        "import matplotlib.pyplot as plt",
+        "import seaborn as sns",
+        "from pathlib import Path",
+        "import os"
+      ]
+    },
+    {
+      "cell_type": "markdown",
+      "metadata": {"id": "#VSC-e51fef40", "language": "markdown"},
+      "source": [
+        "## 2. Define Paths and Check Files",
+        "Set the path for the data file and check if it exists before loading."
+      ]
+    },
+    {
+      "cell_type": "code",
+      "metadata": {"id": "#VSC-de8e422a", "language": "python"},
+      "source": [
+        "# Define data path and check file existence",
+        "data_dir = Path('../data/')",
+        "file_ecommerce = data_dir / 'E-commerce Dataset.csv'",
+        "def check_file_exists(filepath):",
+        "    exists = os.path.exists(filepath)",
+        "    print(f\"File '{filepath}': {'FOUND' if exists else 'NOT FOUND'}\")",
+        "    return exists",
+        "check_file_exists(file_ecommerce)"
+      ]
+    },
+    {
+      "cell_type": "markdown",
+      "metadata": {"id": "#VSC-ca179059", "language": "markdown"},
+      "source": [
+        "## 3. Load E-commerce Dataset",
+        "Load the CSV file into a DataFrame with robust error handling."
+      ]
+    },
+    {
+      "cell_type": "code",
+      "metadata": {"id": "#VSC-b62df95c", "language": "python"},
+      "source": [
+        "# Load E-commerce Dataset",
+        "ecommerce_df = None",
+        "try:",
+        "    ecommerce_df = pd.read_csv(file_ecommerce, low_memory=False)",
+        "    print(\"E-commerce Dataset loaded successfully.\")",
+        "    print(f\"Shape: {ecommerce_df.shape}\")",
+        "except Exception as e:",
+        "    print(f\"Error loading E-commerce Dataset: {e}\")"
+      ]
+    },
+    {
+      "cell_type": "markdown",
+      "metadata": {"id": "#VSC-d835908b", "language": "markdown"},
+      "source": [
+        "## 4. Initial DataFrame Diagnostics",
+        "Show shape, columns, and first rows to confirm successful loading."
+      ]
+    },
+    {
+      "cell_type": "code",
+      "metadata": {"id": "#VSC-f7853481", "language": "python"},
+      "source": [
+        "# Diagnostics: shape, columns, head",
+        "if ecommerce_df is not None:",
+        "    print('Shape:', ecommerce_df.shape)",
+        "    print('Columns:', list(ecommerce_df.columns))",
+        "    display(ecommerce_df.head())",
+        "else:",
+        "    print('ecommerce_df is NOT loaded. Check the file path and name.')"
+      ]
+    },
+    {
+      "cell_type": "markdown",
+      "metadata": {"id": "#VSC-3b7d7520", "language": "markdown"},
+      "source": [
+        "## 5. Data Quality Check",
+        "Check for missing values, data types, duplicates, and basic statistics."
+      ]
+    },
+    {
+      "cell_type": "code",
+      "metadata": {"id": "#VSC-60411dcb", "language": "python"},
+      "source": [
+        "# Data quality check",
+        "if ecommerce_df is not None:",
+        "    print('Missing values per column:')",
+        "    print(ecommerce_df.isnull().sum())",
+        "    print('\\nData types:')",
+        "    print(ecommerce_df.dtypes)",
+        "    print('\\nDuplicate rows:', ecommerce_df.duplicated().sum())",
+        "    print('\\nBasic statistics:')",
+        "    print(ecommerce_df.describe())",
+        "else:",
+        "    print('ecommerce_df is NOT loaded.')"
+      ]
+    },
+    {
+      "cell_type": "markdown",
+      "metadata": {"id": "#VSC-99778541", "language": "markdown"},
+      "source": [
+        "## 6. Check Essential Columns",
+        "Confirm that all required columns for analysis and visualization are present."
+      ]
+    },
+    {
+      "cell_type": "code",
+      "metadata": {"id": "#VSC-269d7836", "language": "python"},
+      "source": [
+        "# Check for essential columns",
+        "required_columns = ['Sales', 'Gender', 'Product_Category', 'Order_Date', 'Ship_Date']",
+        "if ecommerce_df is not None:",
+        "    missing = [col for col in required_columns if col not in ecommerce_df.columns]",
+        "    if missing:",
+        "        print(f\"Missing columns: {missing}\")",
+        "    else:",
+        "        print(\"All required columns are present.\")",
+        "else:",
+        "    print('ecommerce_df is NOT loaded.')"
+      ]
+    },
+    {
+      "cell_type": "markdown",
+      "metadata": {"id": "#VSC-5de986e1", "language": "markdown"},
+      "source": [
+        "## 7. Simple Exploratory Visualizations",
+        "Create basic plots to validate data structure and content."
+      ]
+    },
+    {
+      "cell_type": "code",
+      "metadata": {"id": "#VSC-3e887640", "language": "python"},
+      "source": [
+        "# Sales histogram",
+        "if ecommerce_df is not None and 'Sales' in ecommerce_df.columns:",
+        "    plt.figure(figsize=(8,5))",
+        "    plt.hist(ecommerce_df['Sales'].dropna(), bins=50, color='skyblue', alpha=0.7)",
+        "    plt.title('Sales Distribution')",
+        "    plt.xlabel('Sales')",
+        "    plt.ylabel('Frequency')",
+        "    plt.tight_layout()",
+        "    plt.show()",
+        "else:",
+        "    print('Sales column not found or dataframe not loaded.')"
+      ]
+    },
+    {
+      "cell_type": "code",
+      "metadata": {"id": "#VSC-d4747781", "language": "python"},
+      "source": [
+        "# Product category distribution",
+        "if ecommerce_df is not None and 'Product_Category' in ecommerce_df.columns:",
+        "    plt.figure(figsize=(10,6))",
+        "    ecommerce_df['Product_Category'].value_counts().plot(kind='bar', color='lightgreen')",
+        "    plt.title('Product Category Distribution')",
+        "    plt.xlabel('Product Category')",
+        "    plt.ylabel('Count')",
+        "    plt.tight_layout()",
+        "    plt.show()",
+        "else:",
+        "    print('Product_Category column not found or dataframe not loaded.')"
+      ]
+    },
+    {
+      "cell_type": "markdown",
+      "metadata": {"id": "#VSC-dacd89ff", "language": "markdown"},
+      "source": [
+        "## 8. Export Visualizations as PNG",
+        "Save each plot as a PNG file in the /results_png/ directory for reproducibility."
+      ]
+    },
+    {
+      "cell_type": "code",
+      "metadata": {"id": "#VSC-b4dc7f4a", "language": "python"},
+      "source": [
+        "# Ensure results_png directory exists",
+        "results_png_dir = Path('../results_png/')",
+        "if not results_png_dir.exists():",
+        "    results_png_dir.mkdir(parents=True)",
+        "    print(f\"Created directory: {results_png_dir}\")",
+        "else:",
+        "    print(f\"Directory already exists: {results_png_dir}\")"
+      ]
+    },
+    {
+      "cell_type": "code",
+      "metadata": {"id": "#VSC-408225c0", "language": "python"},
+      "source": [
+        "# Export sales histogram as PNG",
+        "if ecommerce_df is not None and 'Sales' in ecommerce_df.columns:",
+        "    fig, ax = plt.subplots(figsize=(8,5))",
+        "    ax.hist(ecommerce_df['Sales'].dropna(), bins=50, color='skyblue', alpha=0.7)",
+        "    ax.set_title('Sales Distribution')",
+        "    ax.set_xlabel('Sales')",
+        "    ax.set_ylabel('Frequency')",
+        "    plt.tight_layout()",
+        "    plt.show()",
+        "    fig.savefig(results_png_dir / 'sales_distribution.png', dpi=300)",
+        "else:",
+        "    print('Sales column not found or dataframe not loaded.')"
+      ]
+    },
+    {
+      "cell_type": "code",
+      "metadata": {"id": "#VSC-692994d0", "language": "python"},
+      "source": [
+        "# Export product category distribution as PNG",
+        "if ecommerce_df is not None and 'Product_Category' in ecommerce_df.columns:",
+        "    fig, ax = plt.subplots(figsize=(10,6))",
+        "    ecommerce_df['Product_Category'].value_counts().plot(kind='bar', color='lightgreen', ax=ax)",
+        "    ax.set_title('Product Category Distribution')",
+        "    ax.set_xlabel('Product Category')",
+        "    ax.set_ylabel('Count')",
+        "    plt.tight_layout()",
+        "    plt.show()",
+        "    fig.savefig(results_png_dir / 'product_category_distribution.png', dpi=300)",
+        "else:",
+        "    print('Product_Category column not found or dataframe not loaded.')"
+      ]
+    }
+  ]
+}

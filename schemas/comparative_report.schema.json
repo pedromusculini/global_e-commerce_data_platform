@@ -1,0 +1,110 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "https://example.com/schemas/comparative_report.schema.json",
+  "title": "Comparative Report",
+  "description": "Schema for comparative_report.json produced by generate_comparative_report.py",
+  "type": "object",
+  "required": [
+    "schema_version",
+    "generated_at_utc",
+    "inputs",
+    "kpis",
+    "figures",
+    "narrative",
+    "data_availability",
+    "integrity"
+  ],
+  "additionalProperties": false,
+  "properties": {
+    "schema_version": {
+      "type": "string",
+      "pattern": "^\\d+\\.\\d+\\.\\d+$"
+    },
+    "generated_at_utc": {"type": "string", "format": "date-time"},
+    "inputs": {
+      "type": "object",
+      "required": ["providers", "dedup_key_mode", "seed", "limit", "fake_mode"],
+      "additionalProperties": false,
+      "properties": {
+        "providers": {"type": "array", "items": {"type": "string"}},
+        "dedup_key_mode": {"type": "string", "enum": ["pair", "triple"]},
+        "seed": {"type": ["integer", "null"]},
+        "limit": {"type": ["integer", "null"]},
+        "fake_mode": {"type": "string", "enum": ["none", "fake", "fake-only"]}
+      }
+    },
+    "kpis": {
+      "type": "object",
+      "required": [
+        "products_total","products_by_provider","products_new","products_updated","products_outliers_price","orders_total","orders_by_provider","orders_outliers_total","aov_mean","aov_median"
+      ],
+      "additionalProperties": true,
+      "properties": {
+        "products_total": {"type": ["integer","null"]},
+        "products_by_provider": {"type": "object", "additionalProperties": {"type": "integer"}},
+        "products_new": {"type": ["integer","null"]},
+        "products_updated": {"type": ["integer","null"]},
+        "products_outliers_price": {"type": ["integer","null"]},
+        "orders_total": {"type": ["integer","null"]},
+        "orders_by_provider": {"type": "object", "additionalProperties": {"type": "integer"}},
+        "orders_outliers_total": {"type": ["integer","null"]},
+        "aov_mean": {"type": ["number", "null"]},
+        "aov_median": {"type": ["number", "null"]}
+      }
+    },
+    "figures": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["name", "path", "sha256", "size_bytes"],
+        "additionalProperties": true,
+        "properties": {
+          "name": {"type": "string"},
+          "path": {"type": "string"},
+          "section": {"type": "string"},
+          "sha256": {"type": "string", "pattern": "^[a-f0-9]{64}$"},
+          "size_bytes": {"type": "integer", "minimum": 1},
+          "description": {"type": "string"}
+        }
+      }
+    },
+    "narrative": {
+      "type": "object",
+      "required": ["summary","details"],
+      "additionalProperties": true,
+      "properties": {
+        "summary": {"type": "string"},
+        "details": {"type": "string"}
+      }
+    },
+    "data_availability": {
+      "type": "object",
+      "required": ["products_rows","orders_rows","products_enriched","orders_enriched"],
+      "additionalProperties": false,
+      "properties": {
+        "products_rows": {"type": "integer"},
+        "orders_rows": {"type": "integer"},
+        "products_enriched": {"type": "boolean"},
+        "orders_enriched": {"type": "boolean"}
+      }
+    },
+    "integrity": {
+      "type": "object",
+      "required": ["figure_count","figure_ids"],
+      "additionalProperties": true,
+      "properties": {
+        "figure_count": {"type": "integer"},
+        "figure_ids": {"type": "array", "items": {"type": "string"}},
+        "expected_figures": {"type": "array", "items": {"type": "string"}},
+        "missing_figures": {"type": "array", "items": {"type": "string"}}
+      }
+    },
+    "products": {"type": "object"},
+    "orders": {"type": "object"},
+    "enriched": {"type": "object"},
+    "run_logs": {"type": "object"},
+    "notes": {"type": "object"},
+    "paths": {"type": "object"},
+    "$schema": {"type": "string"}
+  }
+}

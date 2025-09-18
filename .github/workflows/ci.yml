@@ -1,0 +1,105 @@
+name: CI
+
+on:
+  push:
+    branches: [ main, master ]
+  pull_request:
+    branches: [ main, master ]
+  workflow_dispatch:
+
+jobs:
+  build-test:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    permissions:
+      contents: write  # allow committing updated coverage badge on main
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+
+      - name: Cache pip
+        uses: actions/cache@v4
+        with:
+          path: ~/.cache/pip
+          key: ${{ runner.os }}-pip-${{ hashFiles('**/requirements.txt') }}
+          restore-keys: |
+            ${{ runner.os }}-pip-
+
+      - name: Install system deps for WeasyPrint (optional)
+        run: sudo apt-get update && sudo apt-get install -y libpango-1.0-0 libpangoft2-1.0-0 libcairo2 libffi-dev shared-mime-info || echo "Skipping optional packages"
+
+      - name: Install Python dependencies
+        run: |
+          python -m pip install --upgrade pip
+          pip install -r requirements.txt
+
+      - name: Run pipeline (synthetic minimal)
+        run: |
+          python pipelines/run_pipeline.py --providers shopify,amazon,ebay --fake-only --limit 50 --seed 42 --key-mode triple
+
+      - name: Generate figures
+        run: |
+          python scripts/generate_figures.py
+
+      - name: Generate & validate report
+        run: |
+          python scripts/generate_comparative_report.py --validate
+
+      - name: Run tests
+        run: |
+          pytest -q
+
+      - name: Coverage
+        run: |
+          coverage run -m pytest -q
+          coverage xml -o coverage.xml
+          coverage html -d coverage_html
+          coverage-badge -o coverage.svg -f
+
+      - name: Commit coverage badge (main only)
+        if: github.ref == 'refs/heads/main' || github.ref == 'refs/heads/master'
+        run: |
+          mkdir -p badges
+          cp coverage.svg badges/coverage.svg
+          if git diff --quiet badges/coverage.svg; then
+            echo "No coverage badge changes"
+          else
+            git config user.name "github-actions"
+            git config user.email "github-actions@github.com"
+            git add badges/coverage.svg
+            git commit -m "chore: update coverage badge [skip ci]" || echo "Nothing to commit"
+            git push || echo "Push skipped"
+          fi
+
+      - name: Upload coverage artifacts
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: coverage
+          path: |
+            coverage.xml
+            coverage.svg
+            coverage_html/**
+
+      - name: Upload report artifacts
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: comparative-report
+          path: |
+            reports/comparative_report.md
+            reports/comparative_report.json
+            reports/figures/*.png
+
+      - name: Upload pipeline run log (if present)
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: pipeline-runs-log
+          path: pipeline_runs.jsonl
+          if-no-files-found: ignore

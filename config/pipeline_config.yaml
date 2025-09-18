@@ -1,0 +1,33 @@
+providers:
+  shopify:
+    resources:
+      products:
+        limit: 100
+        max_pages: 1
+      orders:
+        limit: 50
+        max_pages: 1
+        status: any  # could be open, closed, cancelled, any, etc.
+  amazon:
+    resources:
+      items:
+        asins: ["B000TEST01","B000TEST02"]  # placeholder ASINs
+  ebay:
+    resources:
+      search:
+        queries:
+          - "gaming mouse"
+          - "wireless keyboard"
+  mock:
+    resources:
+      products:
+        limit: 25  # quantidade sintética default
+      orders:
+        limit: 10
+        # max_pages ignorado para mock, gerador local não pagina
+
+defaults:
+  cache_ttl: 3600
+  limit: 50
+  max_pages: 1
+  output_format: parquet  # or csv fallback

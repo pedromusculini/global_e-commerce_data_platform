@@ -1,0 +1,19 @@
+{
+  "version": 1,
+  "description": "Unified product schema across providers",
+  "fields": [
+    {"name": "source", "type": "string"},
+    {"name": "source_id", "type": "string"},
+    {"name": "title", "type": "string"},
+    {"name": "price_amount", "type": "float"},
+    {"name": "price_currency", "type": "string"},
+    {"name": "image_url", "type": "string"},
+    {"name": "category", "type": "string"},
+    {"name": "url", "type": "string"},
+    {"name": "collected_at", "type": "string"},
+    {"name": "raw_hash", "type": "string"},
+    {"name": "raw_file", "type": "string"},
+    {"name": "additional", "type": "string"}
+  ],
+  "primary_key": ["source","source_id"]
+}

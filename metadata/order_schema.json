@@ -1,0 +1,29 @@
+{
+  "version": 1,
+  "entity": "orders",
+  "primary_key": ["source", "order_id"],
+  "description": "Unified order schema across commerce providers (initially Shopify).",
+  "fields": [
+    { "name": "source", "type": "string", "description": "Provider identifier (shopify, amazon, etc.)" },
+    { "name": "order_id", "type": "string", "description": "Platform native order id" },
+    { "name": "source_order_number", "type": "string", "description": "Human-friendly incremental number (if available)" },
+    { "name": "created_at", "type": "datetime", "description": "Order creation timestamp (UTC ISO8601)" },
+    { "name": "closed_at", "type": "datetime", "description": "Closure / completion timestamp" },
+    { "name": "currency", "type": "string", "description": "ISO 4217 currency code" },
+    { "name": "total_price", "type": "decimal", "description": "Final order total including adjustments" },
+    { "name": "subtotal_price", "type": "decimal", "description": "Subtotal before shipping/taxes/discounts" },
+    { "name": "total_tax", "type": "decimal", "description": "Total tax amount" },
+    { "name": "total_discount", "type": "decimal", "description": "Aggregated discount amount (if derivable)" },
+    { "name": "total_shipping", "type": "decimal", "description": "Shipping amount (if derivable)" },
+    { "name": "financial_status", "type": "string", "description": "Financial status (paid, pending, refunded, etc.)" },
+    { "name": "fulfillment_status", "type": "string", "description": "Fulfillment status (fulfilled, partial, null)" },
+    { "name": "line_items_count", "type": "integer", "description": "Number of line items" },
+    { "name": "line_items_skus", "type": "string", "description": "Comma joined SKU list" },
+    { "name": "customer_id", "type": "string", "description": "Platform native customer id (hashed/anonymized if needed externally)" },
+    { "name": "customer_email_hash", "type": "string", "description": "SHA256 lowercase email (never raw)" },
+    { "name": "raw_file", "type": "string", "description": "Path to raw JSON file" },
+    { "name": "raw_hash", "type": "string", "description": "Hash of raw order payload segment" },
+    { "name": "ingested_at", "type": "datetime", "description": "Timestamp the order was ingested" },
+    { "name": "additional", "type": "string", "description": "JSON string with ancillary data" }
+  ]
+}

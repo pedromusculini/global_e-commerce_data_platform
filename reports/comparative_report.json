@@ -1,0 +1,156 @@
+{
+  "$schema": "C:\\Users\\pedro\\OneDrive\\Documents\\Taskgrok7\\schemas\\comparative_report.schema.json",
+  "schema_version": "1.1.0",
+  "generated_at_utc": "2025-09-18T19:11:24.036116+00:00",
+  "inputs": {
+    "providers": [],
+    "dedup_key_mode": "pair",
+    "seed": null,
+    "limit": null,
+    "fake_mode": "none"
+  },
+  "paths": {
+    "products": "C:\\Users\\pedro\\OneDrive\\Documents\\Taskgrok7\\data\\normalized\\products.parquet",
+    "orders": "C:\\Users\\pedro\\OneDrive\\Documents\\Taskgrok7\\data\\normalized\\orders.parquet",
+    "products_enriched": "C:\\Users\\pedro\\OneDrive\\Documents\\Taskgrok7\\data\\enriched\\products_enriched.parquet",
+    "orders_enriched": "C:\\Users\\pedro\\OneDrive\\Documents\\Taskgrok7\\data\\enriched\\orders_enriched.parquet",
+    "figures_dir": "C:\\Users\\pedro\\OneDrive\\Documents\\Taskgrok7\\reports\\figures"
+  },
+  "figures": [
+    {
+      "name": "products_price_distributions.png",
+      "path": "figures/products_price_distributions.png",
+      "section": "products",
+      "size_bytes": 36485,
+      "sha256": "39885fd0b279971b9ba608db26f66417b06aca602b5d2d3823bd733dff31bb4c"
+    },
+    {
+      "name": "orders_time_series.png",
+      "path": "figures/orders_time_series.png",
+      "section": "orders",
+      "size_bytes": 37915,
+      "sha256": "f2b118681e83b5c1dd455527936f271167bc44c1f742055f4fcbb12d65cc571c"
+    },
+    {
+      "name": "orders_aov_distribution.png",
+      "path": "figures/orders_aov_distribution.png",
+      "section": "orders",
+      "size_bytes": 36348,
+      "sha256": "7dd10f8b68cb7087bb5274e9a512daa00d0e72ef1e0e9e1bbe3b09f5a7d4e2f1"
+    }
+  ],
+  "products": {
+    "count": 825,
+    "distinct_sources": 3,
+    "top_category": "Electronics",
+    "price": {
+      "min": 3.52,
+      "median": 159.97,
+      "mean": 169.39459393939396,
+      "p90": 308.76,
+      "max": 392.59,
+      "iqr": 174.64999999999998,
+      "fence_lower": -178.92499999999995,
+      "fence_upper": 519.675
+    },
+    "duplicate_logical_key_pairs": 232,
+    "duplicate_logical_key_ratio": 0.6444444444444445,
+    "outlier_price_ratio": 0.0,
+    "sources_top10": [
+      {
+        "source": "ebay",
+        "count": 364,
+        "ratio": 0.4412121212121212
+      },
+      {
+        "source": "shopify",
+        "count": 319,
+        "ratio": 0.38666666666666666
+      },
+      {
+        "source": "amazon",
+        "count": 142,
+        "ratio": 0.17212121212121212
+      }
+    ]
+  },
+  "orders": {
+    "count": 285,
+    "timespan_days": 9,
+    "gmv": {
+      "total": 202023.95,
+      "mean": 708.8559649122808,
+      "median": 627.05
+    },
+    "sources_top10": [
+      {
+        "source": "shopify",
+        "count": 285,
+        "ratio": 1.0
+      }
+    ]
+  },
+  "enriched": {
+    "products": {
+      "columns": [
+        "price_amount",
+        "price_currency",
+        "source_freq",
+        "category_freq"
+      ]
+    },
+    "orders": {
+      "columns": [
+        "order_value_num",
+        "gmv_7d",
+        "orders_7d",
+        "aov_7d",
+        "recency_days"
+      ]
+    }
+  },
+  "run_logs": {},
+  "data_availability": {
+    "products_rows": 825,
+    "orders_rows": 285,
+    "products_enriched": true,
+    "orders_enriched": true
+  },
+  "narrative": {
+    "summary": "The product dataset establishes the commercial catalog footprint (source diversity, category concentration and price dispersion), while the",
+    "details": "The product dataset establishes the commercial catalog footprint (source diversity, category concentration and price dispersion), while the\norders dataset captures temporal demand and monetary performance. Provider (source) breakdowns reveal distribution of catalog and demand.\n\nEngineered features enable downstream tasks:\n- Price segmentation and elasticity exploration (`price_bucket`, `price_log`).\n- Supplier/source reliability & concentration (`source_freq`).\n- Momentum & short‑term commercial monitoring (`gmv_7d`, `orders_7d`, `aov_7d`).\n- Lifecycle / churn proxy via recency (`recency_days`).\n\nData Quality & Risk Observations:\n- Outlier ratios contextualize pricing anomalies for potential cleansing or curation steps.\n- Duplicate logical key pairs (source + source_id) indicate upstream id uniformity or merge correctness.\n- Run log metrics (new_* vs updated_*) help track incremental ingestion health; rising updated/new ratio may signal dataset maturity or stagnation.\n\nRecommended Next Steps:\n1. Establish anomaly thresholds for price outliers and rolling GMV deltas.\n2. Persist daily aggregate tables for BI dashboards.\n3. Integrate simple forecasting (e.g., 7d GMV moving average horizon extension) for operations planning."
+  },
+  "notes": {},
+  "kpis": {
+    "products_total": 825,
+    "products_by_provider": {
+      "ebay": 364,
+      "shopify": 319,
+      "amazon": 142
+    },
+    "products_new": null,
+    "products_updated": null,
+    "products_outliers_price": 0,
+    "orders_total": 285,
+    "orders_by_provider": {
+      "shopify": 285
+    },
+    "orders_outliers_total": null,
+    "aov_mean": 708.8559649122808,
+    "aov_median": 627.05
+  },
+  "integrity": {
+    "figure_count": 3,
+    "figure_ids": [
+      "products_price_distributions.png",
+      "orders_time_series.png",
+      "orders_aov_distribution.png"
+    ],
+    "expected_figures": [
+      "products_price_distributions.png",
+      "orders_time_series.png",
+      "orders_aov_distribution.png"
+    ],
+    "missing_figures": []
+  }
+}

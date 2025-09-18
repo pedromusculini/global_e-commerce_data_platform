@@ -1,0 +1,420 @@
+{
+  "assets": [
+    {
+      "path": "brand/svg/icon_cart_growth_default.svg",
+      "format": "SVG",
+      "variant": "default",
+      "size_bytes": 1366,
+      "width": null,
+      "height": null,
+      "sha256": "93aea8d5216b515a3614e620ca01171d24fe9e2cab6894704015c47f1f2e7c37"
+    },
+    {
+      "path": "brand/svg/icon_cart_growth_dark.svg",
+      "format": "SVG",
+      "variant": "dark",
+      "size_bytes": 1366,
+      "width": null,
+      "height": null,
+      "sha256": "9a2dd520742f6cb92f7d126a86a5bbfa048376967c78721f9e10d622eb2c95a8"
+    },
+    {
+      "path": "brand/svg/icon_cart_growth_outline.svg",
+      "format": "SVG",
+      "variant": "outline",
+      "size_bytes": 1247,
+      "width": null,
+      "height": null,
+      "sha256": "22a8032453fc1adc3119e2997a0b553e878414d1b62f929d66d61ec2955d0d5e"
+    },
+    {
+      "path": "brand/svg/icon_cart_growth_mono.svg",
+      "format": "SVG",
+      "variant": "mono",
+      "size_bytes": 1366,
+      "width": null,
+      "height": null,
+      "sha256": "ceb9def2ddea42bf97db2339f5b5896dc0cafd4cd0ab9e101de0b96fb524e3a0"
+    },
+    {
+      "path": "brand/svg/icon_cart_growth_adaptive.svg",
+      "format": "SVG",
+      "variant": "adaptive",
+      "size_bytes": 1366,
+      "width": null,
+      "height": null,
+      "sha256": "93aea8d5216b515a3614e620ca01171d24fe9e2cab6894704015c47f1f2e7c37"
+    },
+    {
+      "path": "brand/png/icon_cart_growth_default_1024.png",
+      "format": "PNG",
+      "variant": "default",
+      "size_bytes": 8513,
+      "width": 1024,
+      "height": 1024,
+      "sha256": "5203fb63a362d217304e17371427806f949767c1c221a05b6fd8144b2558fbbd"
+    },
+    {
+      "path": "brand/png/icon_cart_growth_default_512.png",
+      "format": "PNG",
+      "variant": "default",
+      "size_bytes": 4340,
+      "width": 512,
+      "height": 512,
+      "sha256": "3b0f674af108d6bce793e6edee31d042f050c6a0cfc4ba23c8de4b4b4ca6d2d6"
+    },
+    {
+      "path": "brand/png/icon_cart_growth_default_256.png",
+      "format": "PNG",
+      "variant": "default",
+      "size_bytes": 2575,
+      "width": 256,
+      "height": 256,
+      "sha256": "aa5381d3d7b524d78ffa2bb4fca424855cee089c8ac44764d3a8409e3d635899"
+    },
+    {
+      "path": "brand/png/icon_cart_growth_default_128.png",
+      "format": "PNG",
+      "variant": "default",
+      "size_bytes": 1748,
+      "width": 128,
+      "height": 128,
+      "sha256": "55c62f4e381ff464265b9ddfdb389d32257a4c3829fbd97a93fa8cb64ce228b2"
+    },
+    {
+      "path": "brand/png/icon_cart_growth_default_64.png",
+      "format": "PNG",
+      "variant": "default",
+      "size_bytes": 1405,
+      "width": 64,
+      "height": 64,
+      "sha256": "10003aeba16077828eac0557d35459126d2f049b11c9a8e50bff8cb8e49f2c5b"
+    },
+    {
+      "path": "brand/png/icon_cart_growth_default_32.png",
+      "format": "PNG",
+      "variant": "default",
+      "size_bytes": 1259,
+      "width": 32,
+      "height": 32,
+      "sha256": "d20f61161072a72eee34dacf49d9548785a19e875a59c64c1307720dfd241377"
+    },
+    {
+      "path": "brand/png/icon_cart_growth_default_16.png",
+      "format": "PNG",
+      "variant": "default",
+      "size_bytes": 1186,
+      "width": 16,
+      "height": 16,
+      "sha256": "9845f970d2b659f3a03a0c1f266ff6f767cc2571f0ad13d8bd0e5cf94b13d020"
+    },
+    {
+      "path": "brand/png/icon_cart_growth_dark_1024.png",
+      "format": "PNG",
+      "variant": "dark",
+      "size_bytes": 8513,
+      "width": 1024,
+      "height": 1024,
+      "sha256": "fee5667a2ebbdbb421c6f9685203db36cb2b7accfb6237e816dfcc3ce6ead5bc"
+    },
+    {
+      "path": "brand/png/icon_cart_growth_dark_512.png",
+      "format": "PNG",
+      "variant": "dark",
+      "size_bytes": 4340,
+      "width": 512,
+      "height": 512,
+      "sha256": "56fe8fdcc8e4f2e3a5a7a90b5ef33e145fbcc538cf95de6f1336d863b8da7c67"
+    },
+    {
+      "path": "brand/png/icon_cart_growth_dark_256.png",
+      "format": "PNG",
+      "variant": "dark",
+      "size_bytes": 2575,
+      "width": 256,
+      "height": 256,
+      "sha256": "ad535bfffea4c90d42861a6a1a95bdfdd6b6ae0a912cd1d14ec0d5aca8a987b7"
+    },
+    {
+      "path": "brand/png/icon_cart_growth_dark_128.png",
+      "format": "PNG",
+      "variant": "dark",
+      "size_bytes": 1748,
+      "width": 128,
+      "height": 128,
+      "sha256": "72b2ddbfaba02e95d84f34f54f4e24a0bad31457fca6e56386169b77794d234e"
+    },
+    {
+      "path": "brand/png/icon_cart_growth_dark_64.png",
+      "format": "PNG",
+      "variant": "dark",
+      "size_bytes": 1405,
+      "width": 64,
+      "height": 64,
+      "sha256": "f89160908bed779e7f471207b33bc320a85a429722029d77f729d70ce6649cde"
+    },
+    {
+      "path": "brand/png/icon_cart_growth_dark_32.png",
+      "format": "PNG",
+      "variant": "dark",
+      "size_bytes": 1259,
+      "width": 32,
+      "height": 32,
+      "sha256": "ac5a7f14a7ae18d2ca1262c7cc6296a149aeb6c0ed3ba5a5765b81bb9afc779f"
+    },
+    {
+      "path": "brand/png/icon_cart_growth_dark_16.png",
+      "format": "PNG",
+      "variant": "dark",
+      "size_bytes": 1186,
+      "width": 16,
+      "height": 16,
+      "sha256": "d8ca0694b781ba139c2cf5652d762d19133fb7277de6ede48f69f582b9b15b23"
+    },
+    {
+      "path": "brand/png/icon_cart_growth_outline_1024.png",
+      "format": "PNG",
+      "variant": "outline",
+      "size_bytes": 3890,
+      "width": 1024,
+      "height": 1024,
+      "sha256": "686c047bc9da8684672db46942824314586310ee148ec5a6749e0ecf5f0acc3f"
+    },
+    {
+      "path": "brand/png/icon_cart_growth_outline_512.png",
+      "format": "PNG",
+      "variant": "outline",
+      "size_bytes": 2144,
+      "width": 512,
+      "height": 512,
+      "sha256": "f80e3320b755f626c0177586b2adb53d6bc457f3039bf8a9fb1ec38beb4d7b68"
+    },
+    {
+      "path": "brand/png/icon_cart_growth_outline_256.png",
+      "format": "PNG",
+      "variant": "outline",
+      "size_bytes": 1526,
+      "width": 256,
+      "height": 256,
+      "sha256": "b031c08ba4ab0f70c93992cba95e75f6276c330b9cfeb49ffee3cbaaedd4aef2"
+    },
+    {
+      "path": "brand/png/icon_cart_growth_outline_128.png",
+      "format": "PNG",
+      "variant": "outline",
+      "size_bytes": 1324,
+      "width": 128,
+      "height": 128,
+      "sha256": "127dc29b5649465c7cadc72511fc71dfb555cca093bb99c09ccb0991c2351994"
+    },
+    {
+      "path": "brand/png/icon_cart_growth_outline_64.png",
+      "format": "PNG",
+      "variant": "outline",
+      "size_bytes": 1221,
+      "width": 64,
+      "height": 64,
+      "sha256": "5a1b9ceb06e036f7a683fe2ebb42ed66db6cb4c7755080ea781f07420295d7e0"
+    },
+    {
+      "path": "brand/png/icon_cart_growth_outline_32.png",
+      "format": "PNG",
+      "variant": "outline",
+      "size_bytes": 1174,
+      "width": 32,
+      "height": 32,
+      "sha256": "a62eb136fb668262b482b94dcd73518ebd1d98ebf0c636715926ef33b85fc71e"
+    },
+    {
+      "path": "brand/png/icon_cart_growth_outline_16.png",
+      "format": "PNG",
+      "variant": "outline",
+      "size_bytes": 1140,
+      "width": 16,
+      "height": 16,
+      "sha256": "2f934e1980f6dfc53fd5069aa55ed3baa309efe7dfce05868a66eef814e046bd"
+    },
+    {
+      "path": "brand/png/icon_cart_growth_mono_1024.png",
+      "format": "PNG",
+      "variant": "mono",
+      "size_bytes": 6990,
+      "width": 1024,
+      "height": 1024,
+      "sha256": "4906be8795ab6b4fcdb8f67b2a30be1a94e3d1db7e036fa8e36c5e3c5e8f3a00"
+    },
+    {
+      "path": "brand/png/icon_cart_growth_mono_512.png",
+      "format": "PNG",
+      "variant": "mono",
+      "size_bytes": 3586,
+      "width": 512,
+      "height": 512,
+      "sha256": "5c4ad1f70b707365d1d3f561234c47a09c467a110f98509f96d3bdf577f8a1de"
+    },
+    {
+      "path": "brand/png/icon_cart_growth_mono_256.png",
+      "format": "PNG",
+      "variant": "mono",
+      "size_bytes": 2190,
+      "width": 256,
+      "height": 256,
+      "sha256": "9c049f37f6553a0ca5540a5aef0fc2098834ffb154d7a90506b4f929f0ddcd39"
+    },
+    {
+      "path": "brand/png/icon_cart_growth_mono_128.png",
+      "format": "PNG",
+      "variant": "mono",
+      "size_bytes": 1587,
+      "width": 128,
+      "height": 128,
+      "sha256": "9f80cb3914e5ffff506a9f835a4316bad62736d74f6e908757c9623589133916"
+    },
+    {
+      "path": "brand/png/icon_cart_growth_mono_64.png",
+      "format": "PNG",
+      "variant": "mono",
+      "size_bytes": 1321,
+      "width": 64,
+      "height": 64,
+      "sha256": "afde5eec77a40a0d83690b256d1de7a14054ef5b9dd8bf7624ac53dd0a9dae8a"
+    },
+    {
+      "path": "brand/png/icon_cart_growth_mono_32.png",
+      "format": "PNG",
+      "variant": "mono",
+      "size_bytes": 1221,
+      "width": 32,
+      "height": 32,
+      "sha256": "d94ae7410a38eff5d46c01116319d221f9c1023efba1759b039aeae931ddac1c"
+    },
+    {
+      "path": "brand/png/icon_cart_growth_mono_16.png",
+      "format": "PNG",
+      "variant": "mono",
+      "size_bytes": 1168,
+      "width": 16,
+      "height": 16,
+      "sha256": "276e0cb97a1d31231f5184b67b325b0e938a4af9de69b8e2f0006e531f3f477d"
+    },
+    {
+      "path": "brand/png/icon_cart_growth_adaptive_1024.png",
+      "format": "PNG",
+      "variant": "adaptive",
+      "size_bytes": 10458,
+      "width": 1024,
+      "height": 1024,
+      "sha256": "2c1c466ce854e081c24b55bb2ee490342dbaad80ea98dcb3392ac5baec84efd6"
+    },
+    {
+      "path": "brand/png/icon_cart_growth_adaptive_512.png",
+      "format": "PNG",
+      "variant": "adaptive",
+      "size_bytes": 5147,
+      "width": 512,
+      "height": 512,
+      "sha256": "789960f3a3eed719d247a46d84bb8662315a24b4776e6bda16c8310e2b06c0ba"
+    },
+    {
+      "path": "brand/png/icon_cart_growth_adaptive_256.png",
+      "format": "PNG",
+      "variant": "adaptive",
+      "size_bytes": 2913,
+      "width": 256,
+      "height": 256,
+      "sha256": "dca94421093ff8d7ed239bb9030f5ba893cb07006b3461a1d3b2432c801c54ab"
+    },
+    {
+      "path": "brand/png/icon_cart_growth_adaptive_128.png",
+      "format": "PNG",
+      "variant": "adaptive",
+      "size_bytes": 1873,
+      "width": 128,
+      "height": 128,
+      "sha256": "b1ed51248c96d8d93d2fe99784152c7a47e581ac8e1241f1f388e4d504eb1bf7"
+    },
+    {
+      "path": "brand/png/icon_cart_growth_adaptive_64.png",
+      "format": "PNG",
+      "variant": "adaptive",
+      "size_bytes": 1462,
+      "width": 64,
+      "height": 64,
+      "sha256": "9e96310cbf7cca41971c8623f492cb33016756c8839561939132124e5659731a"
+    },
+    {
+      "path": "brand/png/icon_cart_growth_adaptive_32.png",
+      "format": "PNG",
+      "variant": "adaptive",
+      "size_bytes": 1265,
+      "width": 32,
+      "height": 32,
+      "sha256": "9cc19baeaa02a6818290048f4b868e6a12ae409ed5f57be7666b0b0fc3d96266"
+    },
+    {
+      "path": "brand/png/icon_cart_growth_adaptive_16.png",
+      "format": "PNG",
+      "variant": "adaptive",
+      "size_bytes": 1185,
+      "width": 16,
+      "height": 16,
+      "sha256": "6c2e8be955718976f4a56210e2a4320a766b3592cf5d4b62e50f9446ff332684"
+    },
+    {
+      "path": "brand/favicon/favicon.ico",
+      "format": "ICO",
+      "variant": "default",
+      "size_bytes": 249,
+      "width": null,
+      "height": null,
+      "sha256": "3a5e4bf9359ba2c1b8d11928d315817db14d2444ab225b4587dad9c17141a687"
+    },
+    {
+      "path": "brand/meta/alt_text.txt",
+      "format": "TXT",
+      "variant": "all",
+      "size_bytes": 137,
+      "width": null,
+      "height": null,
+      "sha256": "a2c74c69452338550c5767e5ad97caae21fcc0a8c77c8d7f7c73d53fb8ab2261"
+    },
+    {
+      "path": "brand/meta/contrast.txt",
+      "format": "TXT",
+      "variant": "analysis",
+      "size_bytes": 127,
+      "width": null,
+      "height": null,
+      "sha256": "303060872966e45cf1efc87c9907f989397d8385875087d746c4fcf2ddd5663f"
+    },
+    {
+      "path": "brand/icon_growth.gif",
+      "format": "GIF",
+      "variant": "animation",
+      "size_bytes": 70804,
+      "width": 512,
+      "height": 512,
+      "sha256": "451f5be1213c924c00f2bc7e418db2540140aa0c7890be9f0e43770c2a7e3055"
+    },
+    {
+      "path": "brand/favicon/favicon.svg",
+      "format": "SVG",
+      "variant": "favicon",
+      "size_bytes": 1364,
+      "width": null,
+      "height": null,
+      "sha256": "97b776470af5d2b7d00faf491b5ee7e0f404cb789a17f389d82def310ad7b9cf"
+    },
+    {
+      "path": "brand/dist/brand_assets_package.zip",
+      "format": "ZIP",
+      "variant": "bundle",
+      "size_bytes": 99571,
+      "width": null,
+      "height": null,
+      "sha256": "0247441ace8d20a8c5eaa12321e1ec3cbaf8e5d5a130a6d9d6ef88f5831e66bc"
+    }
+  ],
+  "alt_text": "Circular e-commerce analytics icon: stylized shopping cart with upward yellow growth bars and arrow, symbolizing increasing online sales.",
+  "spec_version": 1
+}

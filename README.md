@@ -32,7 +32,7 @@ Quality gates: schema validation failure, test failure, or pipeline exception st
 
 Badges:
 * CI (GitHub Actions status for `main`)
-* Coverage (SVG gerado e versionado em `badges/coverage.svg` a cada build da branch principal)
+* Coverage (SVG generated and versioned in `badges/coverage.svg` on each primary branch build)
 
 Planned enhancements:
 * Coverage threshold enforcement
@@ -303,20 +303,20 @@ The canonical deliverable for sharing and reviewing insights is the Markdown fil
 `reports/comparative_report.md`
 
 Why Markdown is prioritized:
-* Version-control friendly (diffs legíveis em Pull Requests)
-* Visualização imediata no GitHub/IDE sem build
-* Fonte única para exportações derivadas (HTML / PDF)
+* Version-control friendly (readable diffs in Pull Requests)
+* Immediate visualization in GitHub/IDE without build
+* Single source for derived exports (HTML / PDF)
 
 Regenerate + export workflow (opcional):
 ```bash
-# 1. Pipeline + figuras
+# 1. Pipeline + figures
 python pipelines/run_pipeline.py --providers shopify,amazon,ebay --fake-only --limit 50 --seed 51 --key-mode triple --verbose
 python scripts/generate_comparative_report.py
 
-# 2. (Opcional) HTML estilizado
+# 2. (Optional) Styled HTML
 python scripts/export_report.py --html
 
-# 3. (Opcional) PDF (melhor com WeasyPrint instalado)
+# 3. (Optional) PDF (better with WeasyPrint installed)
 python scripts/export_report.py --pdf
 ```
 

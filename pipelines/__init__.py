@@ -1,0 +1,1 @@
+"""Pipeline package for ETL processes (raw ingestion, normalization, persistence)."""

@@ -1,0 +1,3 @@
+Contrast (inner bg vs accent bars): 4.16
+Contrast (inner bg vs white): 6.69
+WCAG reference: >= 3 (UI), >= 4.5 (text normal)
